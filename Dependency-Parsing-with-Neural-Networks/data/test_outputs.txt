@@ -1,0 +1,70 @@
+(base) ➜  Project3 python get_vocab.py data/train.conll data/words.vocab data/pos.vocab
+Writing word indices...
+Writing POS indices...
+(base) ➜  Project3 python extract_training_data.py data/train.conll data/input_train.npy data/target_train.npy
+Starting feature extraction... (each . represents 100 sentences)
+...............................................................................................................................................................................................................................................................................................................................................................................................................
+Writing output...
+
+
+(base) ➜  Project3 python train_model.py data/input_train.npy data/target_train.npy data/model.h5
+Compiling model.
+2020-11-15 20:18:01.218803: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-11-15 20:18:01.254276: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fd850e9e3f0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-15 20:18:01.254304: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Done loading data.
+Epoch 1/10
+1900/1900 [==============================] - 20s 11ms/step - loss: 0.5345
+Epoch 2/10
+1900/1900 [==============================] - 19s 10ms/step - loss: 0.3664
+Epoch 3/10
+1900/1900 [==============================] - 19s 10ms/step - loss: 0.3376
+Epoch 4/10
+1900/1900 [==============================] - 19s 10ms/step - loss: 0.3222
+Epoch 5/10
+1900/1900 [==============================] - 20s 10ms/step - loss: 0.3108
+Epoch 6/10
+1900/1900 [==============================] - 19s 10ms/step - loss: 0.3031
+Epoch 7/10
+1900/1900 [==============================] - 19s 10ms/step - loss: 0.2969
+Epoch 8/10
+1900/1900 [==============================] - 19s 10ms/step - loss: 0.2912
+Epoch 9/10
+1900/1900 [==============================] - 20s 10ms/step - loss: 0.2878
+Epoch 10/10
+1900/1900 [==============================] - 20s 10ms/step - loss: 0.2830
+(base) ➜  Project3 python evaluate.py data/model.h5 data/dev.conll
+2020-11-15 20:28:44.376190: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-11-15 20:28:44.458409: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f809d489360 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-15 20:28:44.458453: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Evaluating. (Each . represents 100 test dependency trees)
+WARNING:tensorflow:From /opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/keras/engine/training_v1.py:2070: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+..................................................
+5039 sentence.
+
+Micro Avg. Labeled Attachment Score: 0.7058862549024485
+Micro Avg. Unlabeled Attachment Score: 0.7642844705355588
+
+Macro Avg. Labeled Attachment Score: 0.7096507591770246
+Macro Avg. Unlabeled Attachment Score: 0.7712585543413536
+(base) ➜  Project3 python evaluate.py data/model.h5 data/test.conll
+2020-11-15 20:38:02.182511: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-11-15 20:38:02.258676: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7ff00ec86910 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-11-15 20:38:02.258717: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Evaluating. (Each . represents 100 test dependency trees)
+WARNING:tensorflow:From /opt/anaconda3/lib/python3.8/site-packages/tensorflow/python/keras/engine/training_v1.py:2070: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+........................
+2416 sentence.
+
+Micro Avg. Labeled Attachment Score: 0.7029673276409569
+Micro Avg. Unlabeled Attachment Score: 0.7602674476042622
+
+Macro Avg. Labeled Attachment Score: 0.7021813651709038
+Macro Avg. Unlabeled Attachment Score: 0.762655812922577

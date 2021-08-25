@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<!DOCTYPE corpus SYSTEM "lexsub.dtd">
+
+<corpus lang="english">
+    <lexelt item="tight.r">
+        <instance id="1">
+			<context>If your money is <head>tight</head> don&apos;t cut corners .</context>
+		</instance>
+    </lexelt>
+</corpus>

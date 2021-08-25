@@ -1,0 +1,19 @@
+# lecture07_cky
+# Startsymbols
+TOP ; 1.0
+
+# Phrasal rules
+TOP -> NP VP ; 1
+VP -> V NP ; .5
+VP -> VP PP ; .5
+PP -> P NP ; 1
+NP-> D N ; .25
+NP -> NP PP ; .25
+# Lexical rules
+NP -> she ; .25
+NP -> glasses ; .25
+D -> the ; 1
+N -> cat ; .5
+N -> glasses ; .5
+V -> NP ; 1
+P -> with ; 1
